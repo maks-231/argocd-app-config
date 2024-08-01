@@ -13,6 +13,9 @@ spec:
         app: config-server
     spec:
       containers:
-        - image: maks231docker/mmv2-spring-cloud-config-server:0.0.1-SNAPSHOT
-          imagePullPolicy: Always
-          name: mmv2-spring-cloud-config-server
+        - name: mmv2-spring-cloud-config-server
+          image: maks231docker/mmv2-spring-cloud-config-server:0.0.1-SNAPSHOT
+          ports:
+            - containerPort: 8888
+
+
