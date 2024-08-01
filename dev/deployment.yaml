@@ -13,9 +13,7 @@ spec:
         app: config-server
     spec:
       containers:
-        - name: mmv2-spring-cloud-config-server
-          image: maks231docker/mmv2-spring-cloud-config-server:0.0.1-SNAPSHOT
-          ports:
-            - containerPort: 8888
+        - image: maks231docker/mmv2-spring-cloud-config-server:0.0.1-SNAPSHOT
+          name: mmv2-spring-cloud-config-server
 
 
