@@ -15,5 +15,6 @@ spec:
       containers:
         - image: maks231docker/mmv2-spring-cloud-config-server:0.0.1-SNAPSHOT
           name: mmv2-spring-cloud-config-server
+          imagePullPolicy: Always
 
 
