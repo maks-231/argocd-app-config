@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-alias.force-update: 'true'
+    argocd-image-updater.argoproj.io/image-alias.update-strategy: latest
+  name: currency-conversion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: currency-conversion
+  template:
+    metadata:
+      labels:
+        app: currency-conversion
+    spec:
+      containers:
+        - image: maks231docker/mmv2-currency-conversion-service:0.0.1-SNAPSHOT
+          name: currency-conversion
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: currency-conversion
+spec:
+  selector:
+    app: currency-conversion
+  allocateLoadBalancerNodePorts: true
+  ports:
+    - port: 8100
+      protocol: TCP
+      targetPort: 8100
+  type: LoadBalancer
+
