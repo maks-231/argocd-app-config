@@ -6,8 +6,6 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/maks-231/argocd-app-config.git
-    targetRevision: HEAD
     path: services
   destination:
     server: https://kubernetes.default.svc
