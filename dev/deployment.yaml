@@ -8,15 +8,18 @@ spec:
   source:
     repoURL: https://github.com/maks-231/argocd-app-config.git
     targetRevision: HEAD
-    path: dev
+    path: services
   destination:
     server: https://kubernetes.default.svc
     namespace: default
+    syncPolicy:
+      syncOptions:
+        - CreateNamespace=true
 
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
+      automated:
+        selfHeal: true
+        prune: true
+  selector:
+  template:
 
-    automated:
-      selfHeal: true
-      prune: true
+
